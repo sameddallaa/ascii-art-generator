@@ -1,4 +1,6 @@
 import tkinter as tk
+import ctypes
+ctypes.windll.shcore.SetProcessDpiAwareness(1)
 
 
 ascii_chars = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
@@ -18,8 +20,6 @@ def grayscale_to_ascii(image):
     pixels = image.getdata()
     chars = "".join([ascii_chars[int(pixel // 145)] for pixel in pixels])
     return chars
-
-# from tkinter import font
 
 def display_ascii_art(ascii_art, font_name, font_size):
     root = tk.Tk()
